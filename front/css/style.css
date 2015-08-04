@@ -1,8 +1,38 @@
-body {
-  background-color: blue;
+* { margin:0; padding:0:; box-sizing:border-box;
+}
 
+.headline {
+  padding: 10px;
+  margin: 0 10px;
+  float: left;
+}
+
+body {
+  background-color: white;
+
+}
+nav {
+  float:right;
+  font-family: Arial, sans-serif;
+  margin-right: 20px;
+}
+
+nav a {
+  color: #25366c;
+  text-decoration: none;
+  display: block;
+  float: left;
+  padding: 25px;
 }
 
 h1 {
-  text-align: center;
+
+}
+
+.clearfix:after, article:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
 }
