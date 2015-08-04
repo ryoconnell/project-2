@@ -29,6 +29,10 @@ h1 {
 
 }
 
+.sidebar {
+  width: 25%;
+}
+
 .clearfix:after, article:after {
    content: ".";
    visibility: hidden;
