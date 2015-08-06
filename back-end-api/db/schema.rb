@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150806042625) do
   create_table "contacts", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
-    t.string   "comment"
+    t.sting    "pet_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

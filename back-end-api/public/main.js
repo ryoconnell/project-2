@@ -67,13 +67,61 @@ $("#location-create").on('click', function(){
 
 $("#location-update").on('click', function(){
   $.ajax({
-    url: '/locations/' + $("#pet-id").val(),
+    url: '/locations/' + $("#locaiton-id").val(),
     method: 'PATCH',
     data: {
-      person: {
+      location: {
+        number: number($("#pet-name").val()),
+        street: $("#location-street").val(),
+        city: $("#location-city").val()
+      }
+    }
+  }).done(function(data){
+    console.log("Updated Location!");
+  }).fail(function(data){
+    console.error(data);
+  });
+});
+
+$("#location-destroy").on('click', function(){
+  $.ajax({
+    url: '/locations/' + $("#location-id").val(),
+    method: 'DELETE'
+  }).done(function(data){
+    console.log("Deleted located!");
+  }).fail(function(data){
+    console.error(data);
+  });
+});
+
+//Roles
+$("#pet-create").on('click', function(){
+  $.ajax({
+    url: '/pets/',
+    method: 'POST',
+    data: {
+      pet: {
         name: $("#pet-name").val(),
         species: $("#pet-species").val(),
-        color: $("#person-color").val()
+        color: $("#color").val()
+      }
+    }
+  }).done(function(data){
+    console.log("Created Pet!");
+  }).fail(function(data){
+    console.error(data);
+  });
+});
+
+$("#pet-update").on('click', function(){
+  $.ajax({
+    url: '/pets/' + $("#pet-id").val(),
+    method: 'PATCH',
+    data: {
+      pet: {
+        name: $("#pet-name").val(),
+        contact_id: $("#pet-contact-id").val(),
+        location_id: $("#pet-location-id").val()
       }
     }
   }).done(function(data){
@@ -89,54 +137,6 @@ $("#pet-destroy").on('click', function(){
     method: 'DELETE'
   }).done(function(data){
     console.log("Deleted Pet!");
-  }).fail(function(data){
-    console.error(data);
-  });
-});
-
-//Roles
-$("#pet-create").on('click', function(){
-  $.ajax({
-    url: '/locations',
-    method: 'POST',
-    data: {
-      location: {
-        number: Number$("#loction-name").val()),
-        street: $("#pet-location-id").val(),
-        person_id: $("#pet-contact-id").val()
-      }
-    }
-  }).done(function(data){
-    console.log("Created Pet!");
-  }).fail(function(data){
-    console.error(data);
-  });
-});
-
-$("#role-update").on('click', function(){
-  $.ajax({
-    url: '/roles/' + $("#role-id").val(),
-    method: 'PATCH',
-    data: {
-      role: {
-        name: $("#role-name").val(),
-        movie_id: $("#role-movie-id").val(),
-        person_id: $("#role-person-id").val()
-      }
-    }
-  }).done(function(data){
-    console.log("Updated Role!");
-  }).fail(function(data){
-    console.error(data);
-  });
-});
-
-$("#role-destroy").on('click', function(){
-  $.ajax({
-    url: '/roles/' + $("#role-id").val(),
-    method: 'DELETE'
-  }).done(function(data){
-    console.log("Deleted Role!");
   }).fail(function(data){
     console.error(data);
   });
@@ -192,48 +192,3 @@ $("#user-destroy").on('click', function(){
   });
 });
 
-//Reviews
-$("#review-create").on('click', function(){
-  $.ajax({
-    url: '/reviews',
-    method: 'POST',
-    data: {
-      review: {
-        score: $("#review-score").val(),
-        content: $("#review-content").val()
-      }
-    }
-  }).done(function(data){
-    console.log("Created Review!");
-  }).fail(function(data){
-    console.error(data);
-  });
-});
-
-$("#review-update").on('click', function(){
-  $.ajax({
-    url: '/reviews/' + $("#review-id").val(),
-    method: 'PATCH',
-    data: {
-      review: {
-        score: $("#review-score").val(),
-        content: $("#review-content").val()
-      }
-    }
-  }).done(function(data){
-    console.log("Updated Review!");
-  }).fail(function(data){
-    console.error(data);
-  });
-});
-
-$("#review-destroy").on('click', function(){
-  $.ajax({
-    url: '/reviews/' + $("#review-id").val(),
-    method: 'DELETE'
-  }).done(function(data){
-    console.log("Deleted Review!");
-  }).fail(function(data){
-    console.error(data);
-  });
-});
