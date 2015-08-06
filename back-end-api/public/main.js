@@ -120,8 +120,8 @@ $("#pet-update").on('click', function(){
     data: {
       pet: {
         name: $("#pet-name").val(),
-        contact_id: $("#pet-contact-id").val(),
-        location_id: $("#pet-location-id").val()
+        species: $("species").val(),
+        color: $("#color").val()
       }
     }
   }).done(function(data){
