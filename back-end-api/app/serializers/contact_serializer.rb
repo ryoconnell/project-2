@@ -1,7 +1,4 @@
 class ContactSerializer < ActiveModel::Serializer
-  attributes :name, :email, :pet_name, :poster_src
+  attributes :name, :email, :pet_name
 
-  def poster_src
-    object.poster.url
-  end
 end

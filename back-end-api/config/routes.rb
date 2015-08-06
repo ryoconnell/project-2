@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :locations, except: [:new, :edit]
   resources :users, except: [:new, :edit]
   resources :contacts, except: [:new, :edit]
+  post '/login' => 'users#login'
+  post '/register' => 'users#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -9,6 +9,15 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def login
+    credentials = user_params
+    if (user = User.authenticate credentials[:email],
+                                 credentials[:password])
+      render json: { token: user.token }
+    else
+      head :unauthorized
+    end
+  end
   # GET /users/1
   # GET /users/1.json
   def show
@@ -18,7 +27,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-       @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -61,6 +70,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :username, :token, :password_digest))
+      params.require(:user).permit(:email, :username, :password)
     end
 end
