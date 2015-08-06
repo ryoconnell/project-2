@@ -1,3 +1,3 @@
-class PersonSerializer < ActiveModel::Serializer
+class LocationSerializer < ActiveModel::Serializer
   attributes :id, :number, :street, :city
 end
