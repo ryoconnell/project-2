@@ -8,30 +8,105 @@
 </head>
 <body>
   <header class="clearfix">
-    <img src="front/images/patriots_logo.jpg" alt="Patriots Logo" id="logo" class="headline">
-    <h1></h1>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="Rates.html">Rates</a>
-      <a href="Contact.html">Contact</a>
-    </nav>
+      <img src="front/images/patriots_logo.jpg" alt="Patriot's Logo">
+      <h1>Tom Brady's Pet Sitting</h1>
+      <form id="login">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" />
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="pwd" />
+            <input type="submit" value="Login" />
+
+      </form>
   </header>
-  <section id="main">
+
+  <nav>
+    <a href="about.html">About</a>
+    <a href="rates.html">Rates</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section id="bio">
     <div class="clearfix">
-      <article id="leftsidebar">
-      <p>This is the left sidebar.</p>
+
+      <article class="featured">
+        <h2>About Tom Brady's Pet Sitting</h2>
+        <img src="front/images/dog_in_brady_shirt.jpg" alt="Brady and his Dog">
+        <div>
+          <p>Tom Brady's Pet Sitting has been one of the best pet sitting businesses in the country since 2001.  Tom Brady began his career as a pet sitter while working for Drew Bledsoe in 2000.  He was the 199th applicant for a position.  In the fall of 2001, Tom Brady Pet Sitting began its rise to fame when Drew Bledsoe had to close shop due to a serious leg injury.  Tom Brady took advantage of the situation to begin an unrivaled career in pet sitting. The business is located in Foxborough, MA.</p>
+
       </article>
-    </div>
-    <div id="middle">
-      <article>
-        <p>ddjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkdjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjkjk</p>
-      </article>
-    </div>
-    <div id="rightsidebar">
-      <article>
-        <p>jfkdjfkdjfkdjfkdjkfdjkfjdkjfkdjfkdjfkdjfdkjfkdjfdkjfdkjfkdjfkdjfkdjfdkjfkdjfkdjkfkd</p>
+      <article class="featured">
+         <h2>About the Owner</h2>
+        <img src="front/images/tom_brady_2011.jpg" alt="Brady in 2011">
+        <div>
+
+          <p>Tom Brady grew up in CA, but has since relocated to MA to work on his business.  His success in pet sitting has allowed him to purchase additional houses in CA and NYC.  He currently lives with his wife, 2 children and his dog, Gronk.</p>
+
+        </div>
       </article>
     </div>
   </section>
+  <section id="updates" class="clearfix">
+    <div>
+      <h2>Latest News</h2>
+      <article>
+        <img src="front/images/roger-goodell.jpg">
+        <div>
+          <h3>Time Off</h3>
+          <p>Tom Brady will be forced to take some time off from pet sitting for about 4 weeks soon.  He hopes to shorten his vacation, but it isn't looking good.  As much as we all want Tom to continue his services, it may not be possible for a little while.  Please send your comments to Roger Goodell.</p>
+
+        </div>
+      </article>
+      <article>
+        <img src="front/images/brady_dog_commercial.jpg">
+        <div>
+       <h3>Pet Sitting Awards and Accomplishments</h3>
+          <ul>
+          <li>4 Time Winner of Best Pet Sitting Business in the World</li>
+          <li>Lost 0 clients in 2007</li>
+          <li>Tom Brady was the Winner of the Most Yearly Dogs Walked with 48</li>
+          <li>Tom Brady walked 7,345 miles in the month of January</li>
+          <li>Tom Brady was name Most Valuable Pet Sitter in 2007 and 2010.</li>
+          </ul>
+        </div>
+
+
+
+      </article>
+    </div>
+  </section>
+  <section id="third" class="clearfix">
+    <div>
+      <h2>Rates</h2>
+      <article class="books">
+        <img src="front/images/belichick_dog.jpg">
+        <div>
+
+          <p>Here are the rates based on Tom Brady's Salary</p>
+          <ul>
+          <li>$11,765/hour per pet</li>
+          <li>$47,060 for 5 hours a week!  1 hour discount!</li>
+          <li>$100,000 for overnight stays</li>
+          </ul>
+
+        </div>
+      </article>
+
+      <form id="contact">
+        <h2>Contact</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" />
+            <label for="text">Email:</label>
+            <input type="email" id="email" name="email" />
+            <label for="pet-name">Pet Name:</label>
+            <input type="text" id="pet-name" name="pet-name" />
+            <label for="message">Message:</label>
+            <textarea name="message"></textarea>
+            <input type="submit" id="submit" value="submit" />
+
+      </form>
+    </div>
 </body>
 </html>
