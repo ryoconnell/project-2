@@ -1,5 +1,6 @@
-class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :update, :destroy]
+class LocationsController < OpenReadController
+  skip_before_action :authenticate, only: [:show, :destroy]
+  before_action :set_location, only: [:show, :destroy]
 
   # GET /locations
   # GET /locations.json

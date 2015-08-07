@@ -1,5 +1,6 @@
-class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :update, :destroy]
+class PetsController < OpenReadController
+  skip_before_action :authenticate, only: [:show, :destroy]
+  before_action :set_pet, only: [:show, :destroy]
 
   # GET /pets
   # GET /pets.json

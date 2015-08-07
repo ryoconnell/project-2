@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate, only: [:login, :create]
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         # Tell the UserMailer to send a welcome email after save
-        UserMailer.welcome_email(@user).deliver_later
+        #UserMailer.welcome_email(@user).deliver_later
 
         format.html { redirect_to(@user, notice: 'User was successfully created.') }
         format.json { render json: @user, status: :created, location: @user }
@@ -70,6 +71,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :username, :password)
+      params.require(:user).permit(:name, :email, :username, :password)
     end
 end

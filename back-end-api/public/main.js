@@ -1,12 +1,12 @@
 
-$("#contacts-create").on('click', function(){
+$("#contact-create").on('click', function(){
   $.ajax({
     url: '/contacts/',
     method: 'POST',
     data: {
       contact: {
         name: $("#contact-name").val(),
-        email: $("#contactemail").val(),
+        email: $("#contact-email").val(),
         pet_name: ($("#contact-pet_name").val())
       }
     }
@@ -48,8 +48,6 @@ $("#contact-destroy").on('click', function(){
 
 //Person
 $("#location-create").on('click', function(){
-  console.log($("#location-number").val());
-  console.log(parseInt($("#location-number").val()));
   $.ajax({
     url: '/locations/',
     method: 'POST',
