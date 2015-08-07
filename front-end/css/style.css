@@ -6,8 +6,6 @@ header {
 header img {
   float: left;
   position: relative;
-  height: 100px;
-  width: 100px;
   padding: 10px;
 }
 
@@ -119,34 +117,39 @@ section a {
   float: left;
 }
 #contact input,
-#contact textarea {
+#location input,
+#pet input{
   display: block;
   margin-bottom: 10px;
-  width: 400px;
+  width: 200px;
+  padding: 5px;
+  margin-left: 10px;
 }
-#contact textarea {
-  height: 200px;
-  width: 400px;
-}
-#contact {
 
-  float: right;
-}
-#contact label {
+#contact label
+#location label
+#pet label {
   font-size: 24px;
+  margin-left: 10px;
 }
 input#submit {
   width: 100px;
 }
+#location,
+#pet,
 #contact h2 {
   position: relative;
   right: 38px;
-  color: black;
+
 }
 #location,
-#pet {
+#pet,
+#contact {
+  display: block;
   position: relative;
-  float: right;
+  float: left;
+  margin-right: 60px;
+  margin-left: 60px;
 }
 
 .clearfix:after, article:after {

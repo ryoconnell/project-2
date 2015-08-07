@@ -94,13 +94,17 @@ $("#pet-update").on('click', function(){
   });
 });
 
-  $("#location-create").on("click", function(){
+  $("#location-create").on("click", function(e){
+    e.preventDefault();
+    console.log(typeof parseInt($("#number").val(), 10)));
+    console.log($("#number").val())
     $.ajax({
     url: sa + '/locations',
     method: 'POST',
+    dataType: 'json',
     data: {
       location: {
-        number: Number($("#number").val()),
+        number: parseInt($("#number").val(), 10),
         street: $("#street").val(),
         city: ($("#city").val())
       }
@@ -114,9 +118,12 @@ $("#pet-update").on('click', function(){
 
 $('#login-button').on('click', function(e){
   e.preventDefault();
+  console.log($('#email').val());
+  console.log($('#pwd').val())
   $.ajax({
     url: sa + '/login',
     method: 'POST',
+    dataType: 'json',
     data: {
       user: {
         email: $('#email').val(),
@@ -124,19 +131,26 @@ $('#login-button').on('click', function(e){
       }
     }
   }).done(function(data){
+    console.log(data)
     simpleStorage.set('token', data.token);
   }).fail(function(data){
     console.log('not great');
   });
 });
 
+
+
 $("#location-update").on('click', function(){
+  console.log($("#location-id").val());
+  console.log( $("#street").val());
+  console.log($("#city").val());
   $.ajax({
     url: sa + '/locations' + $("#location-id").val(),
     method: 'PATCH',
+    dataType: 'json',
     data: {
       location: {
-        number: Number($("#number").val()),
+        number: parseInt($("#number").val(), 10),
         street: $("#street").val(),
         city: ($("#city").val())
       }
