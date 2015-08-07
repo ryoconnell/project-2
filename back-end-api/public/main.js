@@ -48,18 +48,21 @@ $("#contact-destroy").on('click', function(){
 
 //Person
 $("#location-create").on('click', function(){
+  console.log($("#location-number").val());
+  console.log(parseInt($("#location-number").val()));
   $.ajax({
     url: '/locations/',
     method: 'POST',
+    dataType: 'json',
     data: {
-      pet: {
+      location: {
         number: Number($("#location-number").val()),
         street: $("#location-street").val(),
         city: $("#location-city").val()
       }
     }
   }).done(function(data){
-    console.log("Created Pet!");
+    console.log("Created Location!");
   }).fail(function(data){
     console.error(data);
   });
@@ -94,7 +97,7 @@ $("#location-destroy").on('click', function(){
   });
 });
 
-//Roles
+
 $("#pet-create").on('click', function(){
   $.ajax({
     url: '/pets/',
