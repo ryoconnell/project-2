@@ -4,6 +4,9 @@ $(function(){
     $.ajax({
     url: sa + '/contacts',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
     data: {
       contact: {
         name: $("#name").val(),
@@ -11,17 +14,21 @@ $(function(){
         pet_name: ($("#pet-name").val())
       }
     }
-  }).done(function(data){
-    console.log("Created Contact!");
-  }).fail(function(data){
-    console.error(data);
+    }).done(function(data){
+      console.log("Created Contact!");
+    }).fail(function(data){
+      console.error(data);
+    });
   });
-});
+
 
 $("#contact-update").on('click', function(){
   $.ajax({
     url: sa + '/contacts' + $("#contact-id").val(),
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
     data: {
       contact: {
         name: $("#name").val(),
@@ -39,7 +46,10 @@ $("#contact-update").on('click', function(){
   $("#contact-destroy").on('click', function(){
   $.ajax({
     url: sa + '/contacts' + $("#contact").val(),
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
   }).done(function(data){
     console.log("Deleted Contact!");
   }).fail(function(data){
@@ -51,6 +61,9 @@ $("#contact-update").on('click', function(){
     $.ajax({
     url: sa + '/pets',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
     data: {
       pet: {
         name: $("#name").val(),
@@ -69,6 +82,9 @@ $("#pet-update").on('click', function(){
   $.ajax({
     url: sa + '/pets' + $("#pet-id").val(),
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
     data: {
       pet: {
         name: $("#name").val(),
@@ -86,7 +102,10 @@ $("#pet-update").on('click', function(){
   $("#pet-destroy").on('click', function(){
   $.ajax({
     url: sa + '/pets' + $("#pet").val(),
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
   }).done(function(data){
     console.log("Deleted Pet!");
   }).fail(function(data){
@@ -95,13 +114,13 @@ $("#pet-update").on('click', function(){
 });
 
   $("#location-create").on("click", function(e){
-    e.preventDefault();
-    console.log(typeof parseInt($("#number").val(), 10)));
-    console.log($("#number").val())
     $.ajax({
     url: sa + '/locations',
     method: 'POST',
     dataType: 'json',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
     data: {
       location: {
         number: parseInt($("#number").val(), 10),
@@ -138,7 +157,27 @@ $('#login-button').on('click', function(e){
   });
 });
 
-
+$('#register-button').on('click', function(e){
+  e.preventDefault();
+  $.ajax({
+    url: sa + '/register',
+    method: 'POST',
+    dataType: 'json',
+    data: {
+      user: {
+        name: $('#name').val(),
+        email: $('#register-email').val(),
+        username: $('#username').val(),
+        password: $('#register-pwd').val()
+      }
+    }
+  }).done(function(data){
+    console.log(data)
+    simpleStorage.set('token', data.token);
+  }).fail(function(data){
+    console.log('not great');
+  });
+});
 
 $("#location-update").on('click', function(){
   console.log($("#location-id").val());
@@ -148,6 +187,9 @@ $("#location-update").on('click', function(){
     url: sa + '/locations' + $("#location-id").val(),
     method: 'PATCH',
     dataType: 'json',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
     data: {
       location: {
         number: parseInt($("#number").val(), 10),
@@ -165,11 +207,14 @@ $("#location-update").on('click', function(){
   $("#location-destroy").on('click', function(){
   $.ajax({
     url: sa + '/locations' + $("#location").val(),
-    method: 'DELETE'
-  }).done(function(data){
-    console.log("Deleted Location!");
-  }).fail(function(data){
-    console.error(data);
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    }
+    }).done(function(data){
+      console.log("Deleted Location!");
+    }).fail(function(data){
+      console.error(data);
+    });
   });
 });
-  });
